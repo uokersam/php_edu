@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1>Eizenbanum</h1>
+<span>testing commit</span>
 <?php echo 'php is working' ?>
 
 <ul>
