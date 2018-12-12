@@ -9,18 +9,49 @@
 </head>
 <body>
 
+
 <?php
 
-$dbh = new PDO('pgsql:host=localhost;port=5432;dbname=edb', 'eizenuser',
-    'eizenuser', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+$dsn = 'pgsql';
+$host = 'localhost';
+$port = '5432';
+$dbname = 'edb';
+$user = 'eizenuser';
+$pass = 'eizenuser';
+$opts = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
-var_dump($dbh);
 
-$res = $dbh->query('SELECT * FROM list');
+try {
+    $dbh = new PDO("$dsn:host=$host;port=$port;dbname=$dbname", $user, $pass,
+        $opts);
+} catch (PDOException $e) {
+    print_r($e->getMessage());
+}
+
+try {
+    $res = $dbh->query('SELECT * FROM list');
+} catch (PDOException $e) {
+    print_r($e->getMessage());
+}
+
 var_dump($res->fetch());
 
+if (isset($_POST['elem'])) {
+    $inputEl = $_POST['elem'];
+    echo $inputEl;
+}
 
 ?>
+
+
+<form action="/index.php" method="post">
+  <label>
+    <span>Input element</span>
+    <input type="text" name="elem">
+  </label>
+  <button>Submit</button>
+</form>
+
 
 </body>
 </html>
