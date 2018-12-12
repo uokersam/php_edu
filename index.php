@@ -1,27 +1,26 @@
-ß<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Eizenbanum</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <title>Document</title>
 </head>
 <body>
-<h1>Eizenbanum</h1>
-<span>testing commit</span>
-<?php echo 'php is working' ?>
 
-<ul>
-    <?php include(__DIR__ . 'controllers/controller.php') ?>
-</ul>
+<?php
 
-<form action="/script.php" method="POST">
-  <input type="text" placeholder="New li elem" name="newElement">
-  <button>Add</button>
-</form>
+$dbh = new PDO('pgsql:host=localhost;port=5432;dbname=edb', 'eizenuser',
+    'eizenuser', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 
-<script src="script.js"></script>
+var_dump($dbh);
+
+$res = $dbh->query('SELECT * FROM list');
+var_dump($res->fetch());
+
+
+?>
 
 </body>
 </html>
