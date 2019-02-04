@@ -40,6 +40,15 @@ if (isset($_POST['elem'])) {
     $res = $stmt->execute([':elem' => $elem]);
 }
 
+$stmt = $dbh->prepare('SELECT * FROM list');
+$stmt->execute();
+$data = $stmt->fetchAll();
+
+foreach ($data as $item) {
+  echo $item['text'] . '<br>';
+}
+
+
 ?>
 
 
