@@ -1,11 +1,14 @@
 <?php
 
-
 if (isset($_POST['insertedElemText'])) {
     $elem = $_POST['insertedElemText'];
 
     $stmt = $dbh->prepare('INSERT INTO list VALUES(:elem)');
     $res = $stmt->execute([':elem' => $elem]);
+}
+
+if (isset($_POST['deleteAll'])) {
+    execute($dbh, 'DELETE FROM list WHERE 1=1');
 }
 
 $data = execute($dbh, 'SELECT * FROM list');
@@ -20,4 +23,9 @@ outputElems($data);
     <input type="text" name="insertedElemText">
   </label>
   <button>Submit</button>
+</form>
+
+<form action="../index.php" method="POST">
+  <input type="hidden" name="deleteAll">
+  <button>DELETE ALL</button>
 </form>
