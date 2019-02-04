@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
 <?php
 
 $dsn = 'pgsql';
@@ -20,10 +19,10 @@ $user = 'eizenuser';
 $pass = 'eizenuser';
 $opts = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
+$connection = "$dsn:host=$host;port=$port;dbname=$dbname";
 
 try {
-    $dbh = new PDO("$dsn:host=$host;port=$port;dbname=$dbname", $user, $pass,
-        $opts);
+    $dbh = new PDO($connection, $user, $pass, $opts);
 } catch (PDOException $e) {
     print_r($e->getMessage());
 }
@@ -34,17 +33,17 @@ try {
     print_r($e->getMessage());
 }
 
-var_dump($res->fetch());
-
 if (isset($_POST['elem'])) {
-    $inputEl = $_POST['elem'];
-    echo $inputEl;
+    $elem = $_POST['elem'];
+
+    $stmt = $dbh->prepare('INSERT INTO list VALUES(:elem)');
+    $res = $stmt->execute([':elem' => $elem]);
 }
 
 ?>
 
 
-<form action="/index.php" method="post">
+<form action="/index.php" method="POST">
   <label>
     <span>Input element</span>
     <input type="text" name="elem">
