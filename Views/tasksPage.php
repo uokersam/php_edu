@@ -15,6 +15,9 @@ $data = execute($dbh, 'SELECT * FROM list');
 outputElems($data);
 
 ?>
+<nav>
+  <a href="../Views/pages/theBasics.php">The basics</a>
+</nav>
 
 
 <form action="../index.php" method="POST">
