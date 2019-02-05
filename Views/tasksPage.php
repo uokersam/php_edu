@@ -3,7 +3,7 @@
 if (isset($_POST['insertedElemText'])) {
     $elem = $_POST['insertedElemText'];
 
-    $stmt = $dbh->prepare('INSERT INTO list VALUES(:elem)');
+    $stmt = $dbh->prepare('INSERT INTO list VALUES(DEFAULT, :elem)');
     $res = $stmt->execute([':elem' => $elem]);
 }
 
