@@ -1,8 +1,5 @@
 <?php
-include_once('./Models/connection.php');
-include_once('./Helpers/execute.php');
-include_once('./Helpers/outputElems.php');
 include_once('./Helpers/countRedBeads.php');
 
-
-include_once('./Views/layout.php');
+var_dump($_SERVER['PATH_INFO']);
+// if url accessed by http://localhost:8000/foo/bar then value is '/foo/bar'
