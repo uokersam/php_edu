@@ -9,26 +9,50 @@
  *
  * @return int
  */
-echo("----------counting red beads<br><br>");
-function count_red_beads(int $n)
+
+function countRedBeads(int $n): int
 {
     //count red beads
     $blueBeads = $n;
 
+    if ($blueBeads < 2) {
+        return 0;
+    }
 
-    // make a string of beads
-
-    // color beads
-
-    // output beads
-
-
-    $numberOfRedBeads = '';
+    $numberOfRedBeads = ($blueBeads - 1) * 2;
 
     return $numberOfRedBeads;
-//    todo output and coloring in OOP style into another function
 }
 
-$beads = count_red_beads(4);
+/**
+ * @param int $beads
+ * echoes beans and coloring it to the html
+ *
+ * @return string
+ */
+function getStringOfBeads(int $beads)
+{
+    if ($beads < 2) {
+        return '';
+    }
+
+    $string = '';
+
+    for ($i = $beads; $i > 0; $i--) {
+        $string .= '@';
+    }
+
+    return $string;
+}
+
+
+echo("----------counting red beads<br><br>");
+
+$redBeads = countRedBeads(2);
+echo $redBeads;
+
+echo '<br>';
+echo getStringOfBeads(5);
+echo '<br>';
 
 echo("<br>counting red beads----------<br>");
