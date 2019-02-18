@@ -44,15 +44,3 @@ function getStringOfBeads(int $beads)
 
     return $string;
 }
-
-
-echo("----------counting red beads<br><br>");
-
-$redBeads = countRedBeads(2);
-echo $redBeads;
-
-echo '<br>';
-echo getStringOfBeads(5);
-echo '<br>';
-
-echo("<br>counting red beads----------<br>");
