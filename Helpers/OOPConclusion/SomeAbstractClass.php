@@ -1,8 +1,10 @@
 <?php
 
+namespace OOPConclusion;
+
 abstract class SomeAbstractClass
 {
-    public function implementable()
+    public static function implementable()
     {
         echo 'implementable';
     }

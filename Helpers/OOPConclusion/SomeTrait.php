@@ -1,5 +1,7 @@
 <?php
 
+namespace OOPConclusion;
+
 trait SomeTrait
 {
     public function someFunction()
