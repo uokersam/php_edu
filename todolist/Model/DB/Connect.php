@@ -33,4 +33,10 @@ class Connect
     {
         return $this->dbh;
     }
+
+    public function execute($sql)
+    {
+        $stmt = $this->getDb()->prepare($sql);
+        return $stmt->execute();
+    }
 }
