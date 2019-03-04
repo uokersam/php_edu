@@ -5,7 +5,7 @@ use Model\DB\Connect;
 spl_autoload_register(function ($class_name) {
     require __DIR__ . '/' . str_replace('\\', '/', $class_name) . '.php';
 });
-
+// some comment test
 $connect = new Connect();
 
 $stmt = $connect->getDb()->prepare('SELECT * FROM list');
