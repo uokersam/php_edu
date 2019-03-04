@@ -12,3 +12,9 @@ $input = [1, 2, 3, 4];
 $output = array_filter($input, criteria_greater_than(3));
 
 print_r($output); //items > 3
+
+//lambda function
+function & ($param) use ($output) {
+    //body
+    return $output;
+}
