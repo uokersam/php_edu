@@ -1,8 +1,9 @@
 <?php
 function criteria_greater_than($min)
 {
-    return function ($item) use ($min) {
-        return $item > $min;
+    $some = $min;
+    return function ($item) use ($some) {
+        return $item > $some;
     };
 }
 
@@ -13,8 +14,12 @@ $output = array_filter($input, criteria_greater_than(3));
 
 print_r($output); //items > 3
 
-//lambda function
-function & ($param) use ($output) {
+//lambda function that returns reference
+$lamb = function & ($param) use ($output) {
     //body
-    return $output;
-}
+    $ref = $param . $output;
+
+    return $ref;
+};
+
+$lamb($input);
