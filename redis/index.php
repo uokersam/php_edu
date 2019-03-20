@@ -3,12 +3,10 @@ include_once 'redis.php';
 
 $input = htmlspecialchars($_GET['input']);
 
-$redis->set('foo', $input);
-
-$value = $redis->get('foo');
+$client->set('foo', $input);
 
 if ($_GET['delete']) {
-    $redis->del('foo');
+    $client->del('foo');
 }
 
 
@@ -26,7 +24,7 @@ if ($_GET['delete']) {
         </form>
 
         <div class="redis-foo__wrapper">
-            Redis value: <strong><?php echo $value ?></strong>
+            Redis value: <strong><?php echo $client->get('foo'); ?></strong>
         </div>
 
     </div>

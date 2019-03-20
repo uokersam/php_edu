@@ -1,7 +1,6 @@
 <?php
-
-require '../vendor/predis/predis/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 Predis\Autoloader::register();
 
-$redis = new Predis\Client();
+$client = new Predis\Client();
