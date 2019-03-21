@@ -26,7 +26,7 @@ if ($_GET['delete']) {
         <div class="redis-foo__wrapper">
             Redis value: <strong><?php echo $client->get('foo'); ?></strong>
         </div>
-
+        <a href="page.php">go to page.php</a>
     </div>
 
 <?php
