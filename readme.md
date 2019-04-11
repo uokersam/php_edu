@@ -1,5 +1,3 @@
-# Creating a to-do app
+# phpeducater
 
-php 7 + postgresql
-
-p.s. actually, i'm trying to understand contents of phptherightway.com in this repository
+Just some functions and folders (maybe mini-projects that have any sence in future) that i wrote sometimes
