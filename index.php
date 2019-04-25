@@ -1,18 +1,15 @@
-<?php
-include_once 'vendor/autoload.php';
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Menu</title>
+</head>
+<body>
 
-use Jenssegers\Blade\Blade;
+Main page (in progress)
 
-spl_autoload_register(function ($class_name) {
-    include $class_name . '.php';
-//    throw new Exception("Unable to load $class_name");
-});
-
-
-$blade = new Blade('views', 'cache');
-
-echo $blade->make('homepage', ['name' => 'John']);
-
-//testing github pull requests
-
-//testing commit for code review on github
+</body>
+</html>
